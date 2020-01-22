@@ -92,6 +92,9 @@ SOFTWARE.
             <arg value="${problem.pck}"/>
             <arg value="${problem.util}"/>
             <arg value="${problem.members}"/>
+            <arg value="${problem.methodName}"/>
+            <arg value="${problem.types}"/>
+            <arg value="${problem.resultType}"/>
             <classpath refid="single.jar"/>
         </java>
         <echo>Problem ${problem.name} generated! </echo>
