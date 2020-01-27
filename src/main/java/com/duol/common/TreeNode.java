@@ -24,6 +24,7 @@
 package com.duol.common;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -34,9 +35,9 @@ import java.util.List;
 public class TreeNode {
 
     /**
-     *     val
-     *     / \
-     *  left right
+     * val
+     * / \
+     * left right
      */
     public TreeNode left;
     public TreeNode right;
@@ -49,21 +50,30 @@ public class TreeNode {
 
     /**
      * 层序赋值
-     * @param vals 值
      */
-    public static TreeNode newTree(Integer... vals) {
-        return newTree(0, vals);
-    }
-
-    private static TreeNode newTree(int start, Integer... vals) {
-        if (start >= vals.length) {
-            return null;
+    public static TreeNode newTree(Integer[] data) {
+        TreeNode root;
+        List<TreeNode> list = new ArrayList<>();//新建一个list集合，将数据变为各个节点
+        for (Integer tempdata : data) {
+            list.add(new TreeNode(tempdata));
         }
-        TreeNode root = new TreeNode(vals[start]);
-        root.left = newTree((start + 1) * 2 - 1, vals);
-        root.right = newTree((start + 1) * 2, vals);
+        root = list.get(0);//将第一个元素设置为根节点
+        /*
+         * 利用构建完全二叉树的方式构建
+         */
+        for (int i = 0; i < list.size() / 2; i++) {
+            if ((i * 2 + 1) < list.size()) {
+                TreeNode node = list.get(i * 2 + 1);
+                list.get(i).left = node.val == null ? null : node;
+            }
+            if ((i * 2 + 2) < list.size()) {
+
+                list.get(i).right = list.get(i * 2 + 2);
+            }
+        }
         return root;
     }
+
 
     /**
      * Serialization: print the nodes in BFS order
@@ -75,12 +85,13 @@ public class TreeNode {
 
     /**
      * Parse the tree in BFS order
-     * @return List of Integer
      *
+     * @return List of Integer
+     * <p>
      * For example, given the following tree,
-     *      a
-     *     / \
-     *    b  null
+     * a
+     * / \
+     * b  null
      * output = [[a],[b,null]]
      * null node will be listed in the output
      */
@@ -108,6 +119,13 @@ public class TreeNode {
             }
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        Integer[] data = {10, 5, -3, 3, 2, null, 11, 3, -2, null, 1};
+        System.out.println(Arrays.toString(data));
+        TreeNode root = newTree(data);
+        System.out.println(root);
     }
 
 }
