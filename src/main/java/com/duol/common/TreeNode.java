@@ -112,10 +112,13 @@ public class TreeNode {
                     buffer.add(node.right);
                 }
             }
-            if (line.isEmpty()) continue;
-            for (Integer n : line) { // ignore the bottom line with all null nodes
-                if (n != null) res.add(line);
-                break;
+            if (!line.isEmpty()) {
+                for (Integer n : line) { // ignore the bottom line with all null nodes
+                    if (n != null) {
+                        res.add(line);
+                        break;
+                    }
+                }
             }
         }
         return res;
