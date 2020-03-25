@@ -12,7 +12,47 @@ import java.util.Set;
 public class UnKnown {
 
     public static void main(String[] args) {
-        test2();
+        UnKnown unKnown = new UnKnown();
+        System.out.println(unKnown.findKth(new int[]{2, 3, 6, 5, 9, 1, 4 ,3}, 3));
+    }
+
+
+    public int findKth(int[] arr, int k) {
+        int oSize = 0;
+        int[] sArr = new int[arr.length];
+        for (int num : arr) {
+            if (num % 2 == 1) {
+                sArr[oSize++] = num;
+            }
+        }
+        if (oSize < k) {
+            return 0;
+        }
+        return findKth(sArr, k, 0, oSize - 1);
+    }
+
+    private int findKth(int[] sArr, int k, int start, int end) {
+        int low = start;
+        int high = end;
+        int temp = sArr[low];
+        while (low < high) {
+            while (low < high && sArr[high] >= temp) {
+                high--;
+            }
+            sArr[low] = sArr[high];
+            while (low < high && sArr[low] < temp) {
+                low++;
+            }
+            sArr[high] = sArr[low];
+        }
+        sArr[high] = temp;
+        if (high == k - 1) {
+            return temp;
+        } else if (high > k - 1) {
+            return findKth(sArr, k, start, high - 1);
+        } else {
+            return findKth(sArr, k, high + 1, end);
+        }
     }
 
 
