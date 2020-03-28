@@ -1,7 +1,7 @@
 /**
- * Leetcode - least_k
+ * Leetcode - minimum_length_encoding
  */
-package com.duol.leetcode.least_k;
+package com.duol.leetcode.minimum_length_encoding;
 
 import java.util.*;
 import com.duol.common.*;
@@ -46,7 +46,7 @@ public class Tester {
     @Parameters
     public static Collection<Object[]> testcases() {
         return Arrays.asList(new Object[][]{
-            // {},     // test case 1 (init parameters below: {para1, para2, expected})
+             {new String[]{"time", "me", "bell"}, 10},     // test case 1 (init parameters below: {para1, para2, expected})
             // {},     // test case 2 (init parameters below: {para1, para2, expected})
             // {}      // test case 3 (init parameters below: {para1, para2, expected})
         });
@@ -58,20 +58,17 @@ public class Tester {
      * Parameters for each test (initialized in testcases() method) 
      * You can change the type of parameters
      */
-
-    private int[] para1;
-    private int para2;
-    private int[] expected;                    // parameter 4 (expected answer)
+    
+    private String[] para1;
+    private int expected;                    // parameter 4 (expected answer)
 
     /** This constructor must be provided to run parameterized test. */
     public Tester(
-            int[] para1,
-            int para2,
-            int[] expected
+            String[] para1,
+            int expected
         ) {
            // initialize test parameters
             this.para1 = para1;
-            this.para2 = para2;
          this.expected = expected;
     }
 
@@ -83,12 +80,12 @@ public class Tester {
     @Test
     public void test() {
         //
-        int[] actual = solution.getLeastNumbers(para1, para2);
-
+        int actual = solution.minimumLengthEncoding(para1);
+        
         assertThat(actual, is(equalTo(expected)));
-
+        
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("getLeastNumbers() pass unit test!");
+            LOGGER.debug("minimumLengthEncoding() pass unit test!");
         }
     }
 
