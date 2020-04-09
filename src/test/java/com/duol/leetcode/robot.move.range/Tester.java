@@ -1,7 +1,7 @@
 /**
- * Leetcode - LFU.cache
+ * Leetcode - robot.move.range
  */
-package com.duol.leetcode.LFU.cache;
+package com.duol.leetcode.robot.move.range;
 
 import java.util.*;
 import com.duol.common.*;
@@ -46,7 +46,7 @@ public class Tester {
     @Parameters
     public static Collection<Object[]> testcases() {
         return Arrays.asList(new Object[][]{
-            // {},     // test case 1 (init parameters below: {para1, para2, expected})
+             {2,3,1,3},     // test case 1 (init parameters below: {para1, para2, expected})
             // {},     // test case 2 (init parameters below: {para1, para2, expected})
             // {}      // test case 3 (init parameters below: {para1, para2, expected})
         });
@@ -60,15 +60,21 @@ public class Tester {
      */
     
     private int para1;
+    private int para2;
+    private int para3;
     private int expected;                    // parameter 4 (expected answer)
 
     /** This constructor must be provided to run parameterized test. */
     public Tester(
             int para1,
+            int para2,
+            int para3,
             int expected
         ) {
            // initialize test parameters
             this.para1 = para1;
+            this.para2 = para2;
+            this.para3 = para3;
          this.expected = expected;
     }
 
@@ -80,12 +86,12 @@ public class Tester {
     @Test
     public void test() {
         //
-        int actual = solution.get(para1);
+        int actual = solution.movingCount(para1, para2, para3);
         
         assertThat(actual, is(equalTo(expected)));
         
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("get() pass unit test!");
+            LOGGER.debug("movingCount() pass unit test!");
         }
     }
 

@@ -1,7 +1,7 @@
 /**
- * Leetcode - LFU.cache
+ * Leetcode - robot.move.range
  */
-package com.duol.leetcode.LFU.cache;
+package com.duol.leetcode.robot.move.range;
 
 // basic util
 import java.util.*;

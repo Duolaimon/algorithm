@@ -60,16 +60,16 @@ public class Tester {
      */
     
     private int[][] para1;
-    private void expected;                    // parameter 4 (expected answer)
+//    private void expected;                    // parameter 4 (expected answer)
 
     /** This constructor must be provided to run parameterized test. */
     public Tester(
-            int[][] para1,
-            void expected
+            int[][] para1
+//            void expected
         ) {
            // initialize test parameters
             this.para1 = para1;
-         this.expected = expected;
+//         this.expected = expected;
     }
 
     /** Execute before each test method in this class is executed. */
@@ -80,9 +80,9 @@ public class Tester {
     @Test
     public void test() {
         //
-        void actual = solution.rotate(para1);
+//        void actual = solution.rotate(para1);
         
-        assertThat(actual, is(equalTo(expected)));
+//        assertThat(actual, is(equalTo(expected)));
         
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("rotate() pass unit test!");
