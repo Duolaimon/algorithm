@@ -1,7 +1,7 @@
 /**
- * Leetcode - find_two_non_overlapping_sub_arrays_each_with_target_sum
+ * Leetcode - allocate_mailboxes
  */
-package com.duol.leetcode.find_two_non_overlapping_sub_arrays_each_with_target_sum;
+package com.duol.leetcode.allocate_mailboxes;
 import java.util.*;
 import com.duol.common.*;
 
@@ -14,9 +14,14 @@ import com.duol.common.*;
  *     }
  * =============================================
  */
-class Solution2 implements Solution {
+class Solution1 implements Solution {
 
-    public int minSumOfLengths(int[] arr, int target){
+    public int minDistance(int[] houses, int k){
+        Arrays.sort(houses);
+        int[] between = new int[houses.length - 1];
+        for (int i = 1; i < houses.length; i++) {
+            between[i - 1] = houses[i] - houses[i - 1];
+        }
         return 0;
     }
 

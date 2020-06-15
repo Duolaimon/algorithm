@@ -4,10 +4,12 @@
 package com.duol.leetcode.find_two_non_overlapping_sub_arrays_each_with_target_sum;
 
 import java.util.*;
+
 import com.duol.common.*;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -23,14 +25,18 @@ import org.slf4j.LoggerFactory;
 @RunWith(Parameterized.class)
 public class Tester {
 
-    /**=========================== static for every test cases ============================== */
+    /**
+     * =========================== static for every test cases ==============================
+     */
 
     // Solution instance to test
     private static Solution solution;
     // use this Object to print the log (call from slf4j facade)
     private static final Logger LOGGER = LoggerFactory.getLogger(TesterRunner.class);
 
-    /** Execute once before any of the test methods in this class. */
+    /**
+     * Execute once before any of the test methods in this class.
+     */
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
         /* uncomment to switch solutions */
@@ -38,62 +44,78 @@ public class Tester {
         // solution = new Solution2();
     }
 
-    /** Execute once after all of the test methods are executed in this class. */
+    /**
+     * Execute once after all of the test methods are executed in this class.
+     */
     @AfterClass
-    public static void tearDownAfterClass() throws Exception {}
+    public static void tearDownAfterClass() throws Exception {
+    }
 
-    /** Initialize test cases */
+    /**
+     * Initialize test cases
+     */
     @Parameters
     public static Collection<Object[]> testcases() {
         return Arrays.asList(new Object[][]{
-            // {},     // test case 1 (init parameters below: {para1, para2, expected})
-            // {},     // test case 2 (init parameters below: {para1, para2, expected})
-            // {}      // test case 3 (init parameters below: {para1, para2, expected})
+                {new int[]{3, 2, 2, 4, 3}, 3, 2},     // test case 1 (init parameters below: {para1, para2, expected})
+                {new int[]{7, 3, 4, 7}, 7, 2},     // test case 2 (init parameters below: {para1, para2, expected})
+                {new int[]{5, 5, 4, 4, 5}, 3, -1},    // test case 3 (init parameters below: {para1, para2, expected})
+                {new int[]{3, 1, 1, 1, 5, 1, 2, 1}, 3, 3}      // test case 3 (init parameters below: {para1, para2, expected})
         });
     }
 
     /**=========================== for each test case ============================== */
 
-    /** 
-     * Parameters for each test (initialized in testcases() method) 
+    /**
+     * Parameters for each test (initialized in testcases() method)
      * You can change the type of parameters
      */
-    
+
     private int[] para1;
     private int para2;
     private int expected;                    // parameter 4 (expected answer)
 
-    /** This constructor must be provided to run parameterized test. */
+    /**
+     * This constructor must be provided to run parameterized test.
+     */
     public Tester(
             int[] para1,
             int para2,
             int expected
-        ) {
-           // initialize test parameters
-            this.para1 = para1;
-            this.para2 = para2;
-         this.expected = expected;
+    ) {
+        // initialize test parameters
+        this.para1 = para1;
+        this.para2 = para2;
+        this.expected = expected;
     }
 
-    /** Execute before each test method in this class is executed. */
+    /**
+     * Execute before each test method in this class is executed.
+     */
     @Before
-    public void setUp() throws Exception {}
+    public void setUp() throws Exception {
+    }
 
-    /** Executed as a test case. */
+    /**
+     * Executed as a test case.
+     */
     @Test
     public void test() {
         //
         int actual = solution.minSumOfLengths(para1, para2);
-        
+
         assertThat(actual, is(equalTo(expected)));
-        
+
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("minSumOfLengths() pass unit test!");
         }
     }
 
-    /** Execute after each test method in this class is executed. */
+    /**
+     * Execute after each test method in this class is executed.
+     */
     @After
-    public void tearDown() throws Exception {}
+    public void tearDown() throws Exception {
+    }
 
 }

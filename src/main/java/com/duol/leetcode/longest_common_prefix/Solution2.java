@@ -1,7 +1,7 @@
 /**
- * Leetcode - find_two_non_overlapping_sub_arrays_each_with_target_sum
+ * Leetcode - longest_common_prefix
  */
-package com.duol.leetcode.find_two_non_overlapping_sub_arrays_each_with_target_sum;
+package com.duol.leetcode.longest_common_prefix;
 import java.util.*;
 import com.duol.common.*;
 
@@ -16,8 +16,8 @@ import com.duol.common.*;
  */
 class Solution2 implements Solution {
 
-    public int minSumOfLengths(int[] arr, int target){
-        return 0;
+    public String longestCommonPrefix(String[] strs){
+        return null;
     }
 
 }
