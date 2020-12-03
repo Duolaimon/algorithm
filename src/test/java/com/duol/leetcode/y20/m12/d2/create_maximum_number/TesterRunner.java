@@ -1,7 +1,7 @@
 /**
- * Leetcode - find_first_and_last_position_of_element_in_sorted_array
+ * Leetcode - create_maximum_number
  */
-package com.duol.leetcode.y20.m12.find_first_and_last_position_of_element_in_sorted_array;
+package com.duol.leetcode.y20.m12.d2.create_maximum_number;
 
 // basic util
 import java.util.*;

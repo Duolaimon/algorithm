@@ -1,7 +1,7 @@
 /**
  * Leetcode - find_first_and_last_position_of_element_in_sorted_array
  */
-package com.duol.leetcode.y20.m12.find_first_and_last_position_of_element_in_sorted_array;
+package com.duol.leetcode.y20.m12.d1.find_first_and_last_position_of_element_in_sorted_array;
 
 /** 
  * 顺序查找
