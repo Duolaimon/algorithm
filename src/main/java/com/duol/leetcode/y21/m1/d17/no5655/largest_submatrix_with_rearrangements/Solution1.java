@@ -17,7 +17,7 @@ import com.duol.common.*;
 class Solution1 implements Solution {
 
     public int largestSubmatrix(int[][] matrix){
-        return null;
+        return 0;
     }
 
 }
