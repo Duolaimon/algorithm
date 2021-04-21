@@ -1,6 +1,9 @@
 package exam;
 
+import com.duol.common.ListNode;
+
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * @author HeJiaGeng
@@ -15,6 +18,40 @@ public class ShunFeng {
         int[] res = merge(a, b);
         System.out.println(Arrays.toString(res));
     }
+
+
+    public static boolean compareStr(String a, String b) {
+        if (a == null) {
+            return false;
+        }
+        if (b == null) {
+            return true;
+        }
+        int size = Math.min(a.length(), b.length());
+        for (int i = 0; i < size; i++) {
+            if (a.charAt(i) > b.charAt(i)) {
+                return true;
+            } else if (a.charAt(i) < b.charAt(i)) {
+                return false;
+            }
+        }
+        return a.length() > b.length();
+    }
+
+    public static boolean isCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (Objects.equals(slow, fast)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public static int[] merge(int[] a, int[] b) {
         int[] res = new int[a.length + b.length];
